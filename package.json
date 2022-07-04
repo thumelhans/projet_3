@@ -1,0 +1,19 @@
+{
+  "name": "projet_3",
+  "version": "1.0.0",
+  "description": "Ohmyfood. Site de commande de repas gastronomique en ligne. Mise en place d'une première version du site avec des animations CSS.",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/style.sass:./css/style.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thumelhans/projet_3.git"
+  },
+  "author": "Tristan Humelhans",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thumelhans/projet_3/issues"
+  },
+  "homepage": "https://github.com/thumelhans/projet_3#readme"
+}
