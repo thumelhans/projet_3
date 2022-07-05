@@ -1,0 +1,99 @@
+//*******************
+//**** Variables ****
+//*******************
+
+//Colors 
+$primary:#9356DC; 
+$secondary: #FF79DA;
+$tertiary: #99E2D0;
+$light-background-color: #EAEAEA;
+$dark-background-color: #353535;
+$danger: darkred;
+$validation: green;
+
+//Font
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shrikhand&display=swap');
+$main-font: "Roboto", sans-serif;
+$logo-font: "Shrikhand", sans-serif;
+
+//Padding & Margin
+$padding: 10px !default;
+$margin: 10px !default;
+$center: 0 auto;
+
+//Height & Width
+$height: 100vh;
+$width: 100%;
+
+//***************
+//**** Reset ****
+//***************
+
+* {
+    margin: $margin - 10px;
+    padding: $padding - 10px;
+    box-sizing: border-box;
+    font-family: $main-font
+}
+
+//*******************
+//**** Fonctions ****
+//*******************
+
+// @function 
+
+//****************
+//**** Mixins ****
+//****************
+
+// @Mixins
+
+@mixin flexbox ($justify, $align, $gap:0){
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin box-shadow ($params){
+    box-shadow: $params;
+}
+
+//********************
+//**** Extensions ****
+//********************
+
+// .[nom de l'extension]
+
+// @extends .[nom de l'extension]
+
+//**********************
+//**** Placeholders ****
+//**********************
+
+// %[nom du placeholder]
+
+// @extend [nom du placeholder]
+
+//****************
+//**** Layout ****
+//****************
+
+.header{
+    position: relative;
+    text-align: center;
+    &__logo{
+        padding: $padding + 5px 0;
+        @include box-shadow(0 5px 15px 5px rgba(0,0,0,0.3));
+        & h1{
+            font-family: $logo-font;
+        }
+    }
+
+}
+
+.places{
+    padding: $padding + 5px 0;
+    background-color :$light-background-color;
+    @include flexbox(center, center, 10px);
+}
