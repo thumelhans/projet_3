@@ -43,7 +43,7 @@ a {
 
 .places {
   padding: 1rem 0;
-  background-color: #eaeaea;
+  background-color: #f6f6f6;
 }
 .places__text {
   display: flex;
@@ -118,6 +118,132 @@ a {
 }
 .reservation__button {
   margin-top: 0.6rem;
+}
+.explanation {
+  padding: 1.2rem;
+}
+.explanation__container {
+  margin-top: 1.2rem;
+}
+.explanation__choose {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: row wrap;
+  flex-flow: row wrap;
+}
+.explanation__choose--number {
+  transform: translateX(0.9rem);
+  background-color: #9356dc;
+  border-radius: 3rem;
+  color: white;
+  width: 1.8rem;
+  height: 1.8rem;
+  text-align: center;
+  display: table;
+}
+.explanation__choose--number p {
+  display: table-cell;
+  vertical-align: middle;
+}
+.explanation__choose--text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  flex-flow: row wrap;
+  padding: 1.6rem 2.1rem;
+  background-color: #f6f6f6;
+  margin: 1.2rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+.explanation__choose--text::before {
+  text-align: center;
+  width: 1.5rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f3cd";
+}
+.explanation__compose {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: row wrap;
+  flex-flow: row wrap;
+}
+.explanation__compose--number {
+  transform: translateX(0.9rem);
+  background-color: #9356dc;
+  border-radius: 3rem;
+  color: white;
+  width: 1.8rem;
+  height: 1.8rem;
+  text-align: center;
+  display: table;
+}
+.explanation__compose--number p {
+  display: table-cell;
+  vertical-align: middle;
+}
+.explanation__compose--text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  flex-flow: row wrap;
+  padding: 1.6rem 2.1rem;
+  background-color: #f6f6f6;
+  margin: 1.2rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+.explanation__compose--text::before {
+  text-align: center;
+  width: 1.5rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f0ca";
+}
+.explanation__taste {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: row wrap;
+  flex-flow: row wrap;
+}
+.explanation__taste--number {
+  transform: translateX(0.9rem);
+  background-color: #9356dc;
+  border-radius: 3rem;
+  color: white;
+  width: 1.8rem;
+  height: 1.8rem;
+  text-align: center;
+  display: table;
+}
+.explanation__taste--number p {
+  display: table-cell;
+  vertical-align: middle;
+}
+.explanation__taste--text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  flex-flow: row wrap;
+  padding: 1.6rem 2.1rem;
+  background-color: #f6f6f6;
+  margin: 1.2rem 0;
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+.explanation__taste--text::before {
+  text-align: center;
+  width: 1.5rem;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f54e";
 }
 
 /*# sourceMappingURL=style.css.map */

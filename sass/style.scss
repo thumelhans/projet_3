@@ -12,7 +12,7 @@ $danger: darkred;
 $validation: green;
 
 //Background
-$light-background-color: #eaeaea;
+$light-background-color: #f6f6f6;
 $dark-background-color: #353535;
 $button-background-color: linear-gradient(
   170deg,
@@ -81,6 +81,47 @@ a {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: $content;
+}
+
+@mixin explanation-content($content) {
+  @include flexbox(flex-start, center, row wrap);
+  // width: 400px;
+  // margin: $center;
+  
+  &--number {
+    transform: translateX(0.9rem);
+    background-color: $primary;
+    border-radius: 3rem;
+    color: $white;
+    width: 1.8rem;
+    height: 1.8rem;
+    text-align: center;
+    display: table;
+
+    & p{
+      display: table-cell;
+      vertical-align: middle;
+    }
+
+  }
+
+  &--text {
+    @include flexbox(flex-start, center, 1.5rem);
+    // height: 3rem;
+    padding: $padding + 1rem $padding +1.5rem;
+    background-color: $light-background-color;
+    margin: $margin + 0.6rem 0;
+    border-radius: 1rem;
+    @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3));
+    
+    &::before {
+      text-align: center;
+      width: 1.5rem;
+      @include icon($content);
+    }
+
+  }
+
 }
 
 //********************
@@ -171,7 +212,7 @@ a {
     }
 
     &-2 {
-      @include flexbox(space-between, flex-start, 00.4rem);
+      @include flexbox(space-between, flex-start, 0.4rem);
       &::before {
         width: 1.5rem;
         @include icon("\f4c4");
@@ -186,7 +227,7 @@ a {
 
 .reservation {
   padding: $padding + 1.25rem $padding + 0.6rem;
-  @include flexbox(space-between, center, 00.6rem, column wrap);
+  @include flexbox(space-between, center, 0.6rem, column wrap);
   text-align: center;
 
   &__button {
@@ -195,6 +236,25 @@ a {
     & button {
       @extend %button;
     }
-        
+  }
+}
+
+.explanation {
+  padding: $padding + 0.6rem;
+
+  &__container {
+    margin-top: $margin + 0.6rem;
+  }
+
+  &__choose {
+    @include explanation-content("\f3cd");  
+  }
+
+  &__compose {
+    @include explanation-content("\f0ca");
+  }
+
+  &__taste {
+    @include explanation-content("\f54e");
   }
 }
