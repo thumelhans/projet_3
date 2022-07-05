@@ -6,12 +6,20 @@
 $primary: #9356dc;
 $secondary: #ff79da;
 $tertiary: #99e2d0;
-$light-background-color: #eaeaea;
-$dark-background-color: #353535;
 $white: white;
 $black: black;
 $danger: darkred;
 $validation: green;
+
+//Background
+$light-background-color: #eaeaea;
+$dark-background-color: #353535;
+$button-background-color: linear-gradient(
+  170deg,
+  rgba(255, 121, 218, 1) 0%,
+  rgba(198, 86, 208, 1) 60%,
+  rgba(147, 86, 220, 1) 100%
+);
 
 //Font
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shrikhand&display=swap");
@@ -20,8 +28,8 @@ $logo-font: "Shrikhand", sans-serif;
 $font-color: $black !default;
 
 //Padding & Margin
-$padding: 10px !default;
-$margin: 10px !default;
+$padding: 0.6rem !default;
+$margin: 0.6rem !default;
 $center: 0 auto;
 
 //Height & Width
@@ -33,8 +41,8 @@ $width: 100%;
 //***************
 
 * {
-  margin: $margin - 10px;
-  padding: $padding - 10px;
+  margin: $margin - 0.6rem;
+  padding: $padding - 0.6rem;
   box-sizing: border-box;
   font-family: $main-font;
 }
@@ -57,9 +65,7 @@ a {
 //**** Mixins ****
 //****************
 
-// @Mixins
-
-@mixin flexbox($justify, $align, $gap: 0, $flex-flow:row wrap) {
+@mixin flexbox($justify, $align, $gap: 0, $flex-flow: row wrap) {
   display: flex;
   justify-content: $justify;
   align-items: $align;
@@ -72,9 +78,9 @@ a {
 }
 
 @mixin icon($content) {
-    font-family: "Font Awesome 5 Free";
-    font-weight: 900;
-    content: $content;    
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: $content;
 }
 
 //********************
@@ -97,6 +103,18 @@ a {
   letter-spacing: 0.1rem;
 }
 
+%button {
+  padding: $padding $padding + 0.4rem;
+  border: none;
+  border-radius: 2.5rem;
+  background: $button-background-color;
+
+  & a {
+    color: $white;
+    font-size: 1.2rem;
+  }
+}
+
 //****************
 //**** Layout ****
 //****************
@@ -106,8 +124,8 @@ a {
   text-align: center;
 
   &__logo {
-    padding: $padding + 5px 0;
-    @include box-shadow(0 5px 15px 5px rgba(0, 0, 0, 0.3));
+    padding: $padding + 0.4rem 0;
+    @include box-shadow(0 0.4rem 1rem 0.4rem rgba(0, 0, 0, 0.3));
 
     & h1 {
       font-family: $logo-font;
@@ -117,13 +135,13 @@ a {
 }
 
 .places {
-  padding: $padding + 5px 0;
+  padding: $padding + 0.4rem 0;
   background-color: $light-background-color;
-  
+
   &__text {
-      @include flexbox(center, center, 10px);
-      &::before{
-        @include icon("\f3c5");
+    @include flexbox(center, center, 0.6rem);
+    &::before {
+      @include icon("\f3c5");
     }
   }
 }
@@ -131,10 +149,10 @@ a {
 .footer {
   background-color: $dark-background-color;
   color: $white;
-  padding: $padding + 20px $padding + 10px;
+  padding: $padding + 1.25rem $padding + 0.6rem;
 
   &__logo {
-    margin-bottom: $margin + 10px;
+    margin-bottom: $margin + 0.6rem;
     & h2 {
       font-family: $logo-font;
     }
@@ -142,27 +160,41 @@ a {
 
   &__link {
     color: $white;
-    @include flexbox(flex-start, flex-start,10px, column wrap);
+    @include flexbox(flex-start, flex-start, 0.6rem, column wrap);
 
-    &-1{
-        @include flexbox(space-between, flex-start, 5px);
-        &::before{
-            width: 23px;
-            @include icon("\f2e7");
-        }
+    &-1 {
+      @include flexbox(space-between, flex-start, 0.4rem);
+      &::before {
+        width: 1.5rem;
+        @include icon("\f2e7");
+      }
     }
-    
-    &-2{
-        @include flexbox(space-between,flex-start, 5px);
-        &::before{
-            width: 23px;
-            @include icon("\f4c4");
-        }        
+
+    &-2 {
+      @include flexbox(space-between, flex-start, 00.4rem);
+      &::before {
+        width: 1.5rem;
+        @include icon("\f4c4");
+      }
     }
 
     & a {
-        color: $white;
-
+      color: $white;
     }
+  }
+}
+
+.reservation {
+  padding: $padding + 1.25rem $padding + 0.6rem;
+  @include flexbox(space-between, center, 00.6rem, column wrap);
+  text-align: center;
+
+  &__button {
+    margin-top: $margin;
+
+    & button {
+      @extend %button;
+    }
+        
   }
 }
