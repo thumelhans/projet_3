@@ -2,19 +2,22 @@
 //**** Variables ****
 //*******************
 
-//Colors 
-$primary:#9356DC; 
-$secondary: #FF79DA;
-$tertiary: #99E2D0;
-$light-background-color: #EAEAEA;
+//Colors
+$primary: #9356dc;
+$secondary: #ff79da;
+$tertiary: #99e2d0;
+$light-background-color: #eaeaea;
 $dark-background-color: #353535;
+$white: white;
+$black: black;
 $danger: darkred;
 $validation: green;
 
 //Font
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shrikhand&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shrikhand&display=swap");
 $main-font: "Roboto", sans-serif;
 $logo-font: "Shrikhand", sans-serif;
+$font-color: $black !default;
 
 //Padding & Margin
 $padding: 10px !default;
@@ -30,17 +33,25 @@ $width: 100%;
 //***************
 
 * {
-    margin: $margin - 10px;
-    padding: $padding - 10px;
-    box-sizing: border-box;
-    font-family: $main-font
+  margin: $margin - 10px;
+  padding: $padding - 10px;
+  box-sizing: border-box;
+  font-family: $main-font;
+}
+
+ul,
+ol,
+a {
+  list-style-type: none;
+  text-decoration: none;
+  color: $font-color;
 }
 
 //*******************
 //**** Fonctions ****
 //*******************
 
-// @function 
+// @function
 
 //****************
 //**** Mixins ****
@@ -48,15 +59,22 @@ $width: 100%;
 
 // @Mixins
 
-@mixin flexbox ($justify, $align, $gap:0){
-    display: flex;
-    justify-content: $justify;
-    align-items: $align;
-    gap: $gap;
+@mixin flexbox($justify, $align, $gap: 0, $flex-flow:row wrap) {
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+  gap: $gap;
+  flex-flow: $flex-flow;
 }
 
-@mixin box-shadow ($params){
-    box-shadow: $params;
+@mixin box-shadow($params) {
+  box-shadow: $params;
+}
+
+@mixin icon($content) {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    content: $content;    
 }
 
 //********************
@@ -75,25 +93,76 @@ $width: 100%;
 
 // @extend [nom du placeholder]
 
+%typography {
+  letter-spacing: 0.1rem;
+}
+
 //****************
 //**** Layout ****
 //****************
 
-.header{
-    position: relative;
-    text-align: center;
-    &__logo{
-        padding: $padding + 5px 0;
-        @include box-shadow(0 5px 15px 5px rgba(0,0,0,0.3));
-        & h1{
-            font-family: $logo-font;
-        }
-    }
+.header {
+  position: relative;
+  text-align: center;
 
+  &__logo {
+    padding: $padding + 5px 0;
+    @include box-shadow(0 5px 15px 5px rgba(0, 0, 0, 0.3));
+
+    & h1 {
+      font-family: $logo-font;
+      @extend %typography;
+    }
+  }
 }
 
-.places{
-    padding: $padding + 5px 0;
-    background-color :$light-background-color;
-    @include flexbox(center, center, 10px);
+.places {
+  padding: $padding + 5px 0;
+  background-color: $light-background-color;
+  
+  &__text {
+      @include flexbox(center, center, 10px);
+      &::before{
+        @include icon("\f3c5");
+    }
+  }
+}
+
+.footer {
+  background-color: $dark-background-color;
+  color: $white;
+  padding: $padding + 20px $padding + 10px;
+
+  &__logo {
+    margin-bottom: $margin + 10px;
+    & h2 {
+      font-family: $logo-font;
+    }
+  }
+
+  &__link {
+    color: $white;
+    @include flexbox(flex-start, flex-start,10px, column wrap);
+
+    &-1{
+        @include flexbox(space-between, flex-start, 5px);
+        &::before{
+            width: 23px;
+            @include icon("\f2e7");
+        }
+    }
+    
+    &-2{
+        @include flexbox(space-between,flex-start, 5px);
+        &::before{
+            width: 23px;
+            @include icon("\f4c4");
+        }        
+    }
+
+    & a {
+        color: $white;
+
+    }
+  }
 }

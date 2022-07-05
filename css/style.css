@@ -6,6 +6,18 @@
   font-family: "Roboto", sans-serif;
 }
 
+ul,
+ol,
+a {
+  list-style-type: none;
+  text-decoration: none;
+  color: black;
+}
+
+.header__logo h1 {
+  letter-spacing: 0.1rem;
+}
+
 .header {
   position: relative;
   text-align: center;
@@ -20,11 +32,68 @@
 
 .places {
   padding: 15px 0;
-  background-color: #EAEAEA;
+  background-color: #eaeaea;
+}
+.places__text {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 10px;
+  flex-flow: row wrap;
+}
+.places__text::before {
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f3c5";
+}
+
+.footer {
+  background-color: #353535;
+  color: white;
+  padding: 30px 20px;
+}
+.footer__logo {
+  margin-bottom: 20px;
+}
+.footer__logo h2 {
+  font-family: "Shrikhand", sans-serif;
+}
+.footer__link {
+  color: white;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 10px;
+  flex-flow: column wrap;
+}
+.footer__link-1 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5px;
+  flex-flow: row wrap;
+}
+.footer__link-1::before {
+  width: 23px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f2e7";
+}
+.footer__link-2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 5px;
+  flex-flow: row wrap;
+}
+.footer__link-2::before {
+  width: 23px;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f4c4";
+}
+.footer__link a {
+  color: white;
 }
 
 /*# sourceMappingURL=style.css.map */
