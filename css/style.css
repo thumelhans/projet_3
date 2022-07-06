@@ -29,6 +29,10 @@ a {
   font-size: 1.2rem;
 }
 
+.restaurant__cards--image img {
+  object-fit: cover;
+}
+
 .header {
   position: relative;
   text-align: center;
@@ -123,7 +127,7 @@ a {
   padding: 1.2rem;
 }
 .explanation__container {
-  margin-top: 1.2rem;
+  margin: 1.2rem;
 }
 .explanation__choose {
   display: flex;
@@ -133,7 +137,8 @@ a {
   flex-flow: row wrap;
 }
 .explanation__choose--number {
-  transform: translateX(0.9rem);
+  position: absolute;
+  left: 1.4rem;
   background-color: #9356dc;
   border-radius: 3rem;
   color: white;
@@ -152,6 +157,7 @@ a {
   align-items: center;
   gap: 1.5rem;
   flex-flow: row wrap;
+  width: 100%;
   padding: 1.6rem 2.1rem;
   background-color: #f6f6f6;
   margin: 1.2rem 0;
@@ -173,7 +179,8 @@ a {
   flex-flow: row wrap;
 }
 .explanation__compose--number {
-  transform: translateX(0.9rem);
+  position: absolute;
+  left: 1.4rem;
   background-color: #9356dc;
   border-radius: 3rem;
   color: white;
@@ -192,6 +199,7 @@ a {
   align-items: center;
   gap: 1.5rem;
   flex-flow: row wrap;
+  width: 100%;
   padding: 1.6rem 2.1rem;
   background-color: #f6f6f6;
   margin: 1.2rem 0;
@@ -213,7 +221,8 @@ a {
   flex-flow: row wrap;
 }
 .explanation__taste--number {
-  transform: translateX(0.9rem);
+  position: absolute;
+  left: 1.4rem;
   background-color: #9356dc;
   border-radius: 3rem;
   color: white;
@@ -232,6 +241,7 @@ a {
   align-items: center;
   gap: 1.5rem;
   flex-flow: row wrap;
+  width: 100%;
   padding: 1.6rem 2.1rem;
   background-color: #f6f6f6;
   margin: 1.2rem 0;
@@ -244,6 +254,69 @@ a {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f54e";
+}
+
+.restaurant {
+  padding: 1.2rem;
+}
+.restaurant__container {
+  margin: 1.2rem 0;
+  padding: 0.6rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1.5rem;
+  flex-flow: column wrap;
+}
+.restaurant__cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+  border-radius: 1.2rem;
+  box-shadow: 0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3);
+}
+.restaurant__cards--image {
+  grid-area: 1/1/4/4;
+  height: 12rem;
+  width: 100%;
+}
+.restaurant__cards--image img {
+  height: 12.06rem;
+  width: 25rem;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+}
+.restaurant__cards--text {
+  padding: 0.4rem 0 0.6rem 1.2rem;
+  padding-bottom: 0.6rem;
+  grid-area: 4/1/5/3;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-flow: column wrap;
+  border-bottom-left-radius: 1.2rem;
+}
+.restaurant__cards--favorite {
+  grid-area: 4/3/5/4;
+  border-bottom-right-radius: 1.2rem;
+}
+.restaurant__cards--favorite .fa-regular {
+  font-size: 2rem;
+  position: absolute;
+  transform: translate(3.15rem, 1.05rem);
+}
+.restaurant__cards--favorite .fa-solid {
+  font-size: 2rem;
+  position: absolute;
+  transform: translate(3.15rem, 1.05rem);
+  opacity: 0;
+}
+.restaurant__cards--heart {
+  width: 100%;
 }
 
 /*# sourceMappingURL=style.css.map */
