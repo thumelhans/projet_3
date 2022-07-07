@@ -36,6 +36,17 @@ $center: 0 auto;
 $height: 100vh;
 $width: 100%;
 
+//**************
+//**** Maps ****
+//**************
+
+// @maps
+
+$breakpoints:(
+  "mobile": 768px,
+  "tablet": 992px
+);
+
 //***************
 //**** Reset ****
 //***************
@@ -87,8 +98,9 @@ a {
   @include flexbox(flex-start, center, row wrap);
 
   &--number {
-    position: absolute;
-    left: $margin + 0.8rem;
+    position: relative;
+    top: 4.25rem;
+    right: 1rem;
     background-color: $primary;
     border-radius: 3rem;
     color: $white;
@@ -209,6 +221,28 @@ a {
   );
 }
 
+@mixin desktop-only {
+  @media screen and (min-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+
+@mixin tablet-only {
+  @media screen and (min-width: map-get($breakpoints, mobile)) and (max-width: map-get($breakpoints, tablet)) {
+    @content;
+  }
+}
+
+@mixin text-colour ($colour) {
+  @if ( lightness($colour) < 25% ) {
+     $colour: lighten($colour, 10%);
+    }@else{
+     $colour: darken($colour, 50%);
+    }
+
+    color: $colour;
+}
+
 //********************
 //**** Extensions ****
 //********************
@@ -235,8 +269,8 @@ a {
   border-radius: 2.5rem;
   background: $button-background-color;
   @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3));
-
-  & a {
+  
+  & p {
     color: $white;
     font-size: 1.2rem;
   }
@@ -252,7 +286,7 @@ a {
       60%,
       100%
     );
-    @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.5))
+    @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.5));
   }
 }
 
@@ -263,6 +297,13 @@ a {
 //****************
 //**** Layout ****
 //****************
+
+main{
+  @include desktop-only{
+    max-width: 1440px;
+    margin: $center;
+  }
+}
 
 .header {
   position: relative;
@@ -327,45 +368,102 @@ a {
       color: $white;
     }
   }
+
+  &__container {
+    @include desktop-only{
+      max-width: 50%;
+      margin: $center;
+    }
+    
+    @include tablet-only{
+      max-width: 70%;
+      margin: $center;
+    }
+  }
+
 }
 
 .reservation {
   padding: $padding + 1.25rem $padding + 0.6rem;
   @include flexbox(space-between, center, 0.6rem, column wrap);
   text-align: center;
-
+  
   &__button {
     margin-top: $margin;
 
+    &--content{
+      color: $white;
+      font-size: 1.2rem;
+    }
+    
     & button {
       @extend %button;
     }
   }
+  
 }
 
 .explanation {
   padding: $padding + 0.6rem;
-
+  max-width: 600px;
+  margin: $center;
+  
   &__container {
     margin: $margin + 0.6rem;
   }
-
+  
   &__choose {
     @include explanation-content("\f3cd");
   }
-
+  
   &__compose {
     @include explanation-content("\f0ca");
   }
-
+  
   &__taste {
     @include explanation-content("\f54e");
+  }
+  
+  @include desktop-only{
+    max-width: 40%;
+    margin: $center;
+  }
+
+  @include tablet-only{
+    max-width: 60%;
+    margin: $center;
   }
 }
 
 .restaurant {
   padding: $padding + 0.6rem;
-  
+
+  &__new{
+    position: relative;
+    top: 3rem;
+    left: 14rem;
+    padding: $padding - 0.3rem $padding;
+    width: fit-content;
+    background-color: $tertiary;
+
+    & p{
+      @include text-colour($tertiary);
+    }
+  }
+
+  &__title{
+
+    @include desktop-only{
+      max-width: 900px;
+      margin: $center;
+    }
+
+    @include tablet-only{
+      max-width: 95%;
+      margin: $center;
+    }
+  }
+
   &__container {
     margin: $margin + 0.6rem 0;
     padding: $padding 0;
@@ -407,13 +505,19 @@ a {
       width: 100%;
     }
   }
+
+  @include desktop-only{
+    max-width: 900px;
+    margin: $center;
+  }
+  
 }
 
 .spinner-loader {
   position: absolute;
   top: 0;
   left: 0;
-  z-index: 1;
+  visibility: hidden;
   width: 100%;
   height: 100vh;
   margin: 0 auto;
@@ -424,82 +528,85 @@ a {
   justify-content: center;
   align-items: center;
   animation: disapear 5000ms ease-in-out both;
+  transform: translateZ(-1);
 
   &__circle1 {
     position: absolute;
     height: 280px;
     margin: 0 auto;
     width: 280px;
-    border: 5px solid rgba(238, 130, 238, 0);
+    border: 5px solid rgba(147, 86, 220, 0);
     border-radius: 50%;
     animation: border-loader 1300ms ease-in-out 600ms 3 both;
   }
-  
+
   &__circle2 {
     position: absolute;
     height: 210px;
     width: 210px;
-    border: 5px solid rgba(238, 130, 238, 0);
+    border: 5px solid rgba(147, 86, 220, 0);
     border-radius: 50%;
     animation: border-loader 1s ease-in-out 550ms 3 both;
   }
-  
+
   &__circle3 {
     position: absolute;
     height: 250px;
     width: 250px;
-    border: 5px solid rgba(238, 130, 238, 0);
+    border: 5px solid rgba(147, 86, 220, 0);
     border-radius: 50%;
     animation: border-loader 1150ms ease-in-out 450ms 3 both;
   }
-  
+
   @keyframes border-loader {
     0% {
-      border-top-color: rgba(238, 130, 238, 0);
+      border-top-color: rgba(147, 86, 220, 0);
       transform: rotate(0deg);
     }
-  
+
     10% {
-      border-top-color: rgba(238, 130, 238, 0.3);
+      border-top-color: rgba(147, 86, 220, 0.3);
     }
-  
+
     30% {
-      border-top-color: rgba(238, 130, 238, 0.5);
+      border-top-color: rgba(147, 86, 220, 0.5);
     }
-  
+
     60% {
-      border-top-color: rgba(238, 130, 238, 0.8);
+      border-top-color: rgba(147, 86, 220, 0.8);
     }
-  
+
     100% {
-      border-top-color: rgba(238, 130, 238, 0);
+      border-top-color: rgba(147, 86, 220, 0);
       transform: rotate(360deg);
     }
   }
-  
+
   & h3 {
     font-size: 2rem;
     opacity: 0;
     animation: disapear 1150ms ease-in-out 150ms 3 both;
   }
-  
+
   &__point {
     font-size: 2rem;
     padding: 3px;
     animation: disapear 1150ms ease-in-out 150ms 3 both;
   }
-  
+
   @keyframes disapear {
     0% {
-      opacity: .8;
+      opacity: 0.8;
+      visibility: visible;
     }
-  
+
     50% {
       opacity: 1;
     }
-  
+
     100% {
       opacity: 0;
+      z-index: 0;
     }
   }
 }
