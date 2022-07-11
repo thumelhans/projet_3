@@ -378,7 +378,7 @@ main {
   }
 
   &__restaurant-image {
-    height: 15rem;
+    height: 12rem;
     max-width: 100%;
     @include header-image;
   }
@@ -451,7 +451,7 @@ main {
   @include flexbox(space-between, center, 0.6rem, column wrap);
   text-align: center;
 
-  &__button{
+  &__button {
     margin-top: $margin + 1rem;
   }
   @include button;
@@ -698,25 +698,375 @@ main {
   }
 
   &__entries {
-    @include flexbox(flex-start, flex-start, 2rem, column wrap);
     padding: $padding;
+    @include flexbox(flex-start, flex-start, 2rem, column wrap);
     @include menu-title;
+
+    &--container {
+      width: 50%;
+      animation: menu-move-up 400ms cubic-bezier(0.12, 0.74, 0.3, 1) both;
+      transform: translateY(20px);
+
+      &:nth-child(1) {
+        animation-delay: 70ms;
+      }
+      &:nth-child(2) {
+        animation-delay: 140ms;
+      }
+      &:nth-child(3) {
+        animation-delay: 210ms;
+      }
+      &:nth-child(4) {
+        animation-delay: 220ms;
+      }
+    }
+
+    &--content {
+      background-color: white;
+      padding: 1rem;
+      display: flex;
+      border-radius: 0.75rem;
+      margin: 1rem 0;
+      box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      width: 30%;
+
+      &:hover > .menu__entries--animation {
+        margin-right: -1rem;
+      }
+
+      &:hover .menu__entries--icon {
+        transform: rotate(360deg);
+      }
+    }
+
+    &--price {
+      font-weight: bold;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-left: 0.5rem;
+    }
+
+    &--text {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      flex: 1;
+
+      & h3 {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      & p {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    &--animation {
+      background-color: $tertiary;
+      margin: -1rem -5rem -1rem 1rem;
+      width: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition-duration: 0.5s;
+    }
+
+    &--icon {
+      height: 1.6rem;
+      width: 1.6rem;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      transform: rotate(0deg);
+      transition: all 0.5s ease-in-out;
+    }
+
+    @keyframes menu-move-up {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        transform: translateY(15px);
+        opacity: 0.25;
+      }
+
+      50% {
+        transform: translateY(10px);
+        opacity: 0.5;
+      }
+
+      75% {
+        transform: translateY(5px);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
   }
 
   &__dishes {
     @include flexbox(flex-start, flex-start, 2rem, column wrap);
     padding: $padding;
     @include menu-title;
+
+    &--container {
+      width: 50%;
+      animation: menu-move-up 400ms cubic-bezier(0.12, 0.74, 0.3, 1) both;
+      transform: translateY(20px);
+
+      &:nth-child(1) {
+        animation-delay: 70ms;
+      }
+      &:nth-child(2) {
+        animation-delay: 140ms;
+      }
+      &:nth-child(3) {
+        animation-delay: 210ms;
+      }
+      &:nth-child(4) {
+        animation-delay: 220ms;
+      }
+    }
+
+    &--content {
+      background-color: white;
+      padding: 1rem;
+      display: flex;
+      border-radius: 0.75rem;
+      margin: 1rem 0;
+      box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      width: 30%;
+
+      &:hover > .menu__dishes--animation {
+        margin-right: -1rem;
+      }
+
+      &:hover .menu__dishes--icon {
+        transform: rotate(360deg);
+      }
+    }
+
+    &--price {
+      font-weight: bold;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-left: 0.5rem;
+    }
+
+    &--text {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      flex: 1;
+
+      & h3 {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      & p {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    &--animation {
+      background-color: $tertiary;
+      margin: -1rem -5rem -1rem 1rem;
+      width: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition-duration: 0.5s;
+    }
+
+    &--icon {
+      height: 1.6rem;
+      width: 1.6rem;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      transform: rotate(0deg);
+      transition: all 0.5s ease-in-out;
+    }
+
+    @keyframes menu-move-up {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        transform: translateY(15px);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(10px);
+        opacity: 0.75;
+      }
+
+      75% {
+        transform: translateY(5px);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
   }
 
   &__desserts {
     @include flexbox(flex-start, flex-start, 2rem, column wrap);
     padding: $padding;
     @include menu-title;
+
+    &--container {
+      width: 50%;
+      animation: menu-move-up 400ms cubic-bezier(0.12, 0.74, 0.3, 1) both;
+      transform: translateY(20px);
+
+      &:nth-child(1) {
+        animation-delay: 70ms;
+      }
+      &:nth-child(2) {
+        animation-delay: 140ms;
+      }
+      &:nth-child(3) {
+        animation-delay: 210ms;
+      }
+      &:nth-child(4) {
+        animation-delay: 220ms;
+      }
+    }
+
+    &--content {
+      background-color: white;
+      padding: 1rem;
+      display: flex;
+      border-radius: 0.75rem;
+      margin: 1rem 0;
+      box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      cursor: pointer;
+      width: 30%;
+
+      &:hover > .menu__desserts--animation {
+        margin-right: -1rem;
+      }
+
+      &:hover .menu__desserts--icon {
+        transform: rotate(360deg);
+      }
+    }
+
+    &--price {
+      font-weight: bold;
+      display: flex;
+      justify-content: flex-end;
+      align-items: flex-end;
+      padding-left: 0.5rem;
+    }
+
+    &--text {
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      flex: 1;
+
+      & h3 {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      & p {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+
+    &--animation {
+      background-color: $tertiary;
+      margin: -1rem -5rem -1rem 1rem;
+      width: 4rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition-duration: 0.5s;
+    }
+
+    &--icon {
+      height: 1.6rem;
+      width: 1.6rem;
+      color: white;
+      font-size: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100px;
+      transform: rotate(0deg);
+      transition: all 0.5s ease-in-out;
+    }
+    @keyframes menu-move-up {
+      0% {
+        opacity: 0;
+      }
+
+      25% {
+        transform: translateY(35px);
+        opacity: 0.5;
+      }
+
+      50% {
+        transform: translateY(20px);
+        opacity: 0.75;
+      }
+
+      75% {
+        transform: translateY(10x);
+        opacity: 0.9;
+      }
+
+      100% {
+        transform: translateY(0px);
+        opacity: 1;
+      }
+    }
   }
 
   &__order {
-    width: 50%;
+    width: fit-content;
     margin: $center;
     margin-top: $margin + 2.4rem;
     margin-bottom: $margin + 2.4rem;
