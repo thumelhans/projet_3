@@ -45,6 +45,7 @@ $width: 100%;
 $breakpoints: (
   "mobile": 768px,
   "tablet": 992px,
+  "widescreen": 1981px,
 );
 
 //***************
@@ -96,6 +97,15 @@ a {
 
 @mixin explanation-content($content) {
   @include flexbox(flex-start, center, row wrap);
+
+  &:hover &--text {
+    @include background-colour($secondary);
+    cursor: pointer;
+  }
+
+  &:hover ::before {
+    color: $primary;
+  }
 
   &--number {
     position: relative;
@@ -230,6 +240,12 @@ a {
   );
 }
 
+@mixin widescreen-only {
+  @media screen and (min-width: map-get($breakpoints, widescreen)) {
+    @content;
+  }
+}
+
 @mixin desktop-only {
   @media screen and (min-width: map-get($breakpoints, tablet)) {
     @content;
@@ -252,6 +268,16 @@ a {
   color: $colour;
 }
 
+@mixin background-colour($colour) {
+  @if (lightness($colour) < 25%) {
+    $colour: darken($colour, 50%);
+  } @else {
+    $colour: lighten($colour, 20%);
+  }
+
+  background-color: $colour;
+}
+
 @mixin menu-title {
   &--title {
     text-transform: uppercase;
@@ -269,6 +295,10 @@ a {
 
     & button {
       @extend %button;
+
+      &:hover {
+        cursor: pointer;
+      }
     }
   }
 }
@@ -337,10 +367,34 @@ a {
 //**** Layout ****
 //****************
 
+body {
+  @include widescreen-only {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+  }
+}
+
 main {
   @include desktop-only {
     max-width: 1440px;
     margin: $center;
+  }
+
+  @include widescreen-only {
+    flex:1;
+    max-width: 1980px;
+    margin: $center;
+    grid-area: 2 / 1 / 3 / 2;
+    @include flexbox(space-evenly, center, 0, column);
+  }
+}
+
+.widescreen {
+  &__flex {
+    @include widescreen-only {
+      @include flexbox(center, flex-start, 0, row wrap);
+    }
   }
 }
 
@@ -374,6 +428,10 @@ main {
       grid-area: 1 / 2 / 2 / 3;
       font-family: $logo-font;
       @extend %typography;
+    }
+
+    @include widescreen-only {
+            grid-area: 1 / 1 / 2 / 2;      
     }
   }
 
@@ -431,6 +489,18 @@ main {
     & a {
       color: $white;
     }
+
+    @include tablet-only() {
+      @include flexbox(space-between, flex-start, 0, row wrap);
+    }
+
+    @include desktop-only {
+      @include flexbox(space-between, flex-start, 0, row wrap);
+    }
+
+    @include widescreen-only {
+      @include flexbox(space-between, flex-start, 0, row wrap);
+    }
   }
 
   &__container {
@@ -440,10 +510,11 @@ main {
     }
 
     @include tablet-only {
-      max-width: 70%;
+      max-width: 90%;
       margin: $center;
     }
   }
+
 }
 
 .reservation {
@@ -478,14 +549,20 @@ main {
     @include explanation-content("\f54e");
   }
 
-  @include desktop-only {
-    max-width: 40%;
-    margin: $center;
-  }
-
   @include tablet-only {
     max-width: 60%;
     margin: $center;
+  }
+
+  @include desktop-only {
+    width: 40%;
+    margin: $center;
+  }
+
+  @include widescreen-only {
+    width: 100%;
+    height: 100%;
+    margin: 0;
   }
 }
 
@@ -506,14 +583,20 @@ main {
   }
 
   &__title {
+    @include tablet-only {
+      max-width: 95%;
+      margin: $center;
+    }
+
     @include desktop-only {
       max-width: 900px;
       margin: $center;
     }
 
-    @include tablet-only {
-      max-width: 95%;
-      margin: $center;
+    @include widescreen-only {
+      max-width: unset;
+      margin: 0;
+      padding-left: 4.5rem;
     }
   }
 
@@ -560,8 +643,14 @@ main {
   }
 
   @include desktop-only {
-    max-width: 900px;
+    width: 900px;
     margin: $center;
+  }
+
+  @include widescreen-only {
+    width: 50%;
+    margin: 0;
+    @include flexbox(flex-start, flex-start, 0, column wrap);
   }
 }
 
