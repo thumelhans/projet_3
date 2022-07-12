@@ -283,6 +283,16 @@ a {
     text-transform: uppercase;
     font-size: 1.1rem;
     @extend %bottom-border;
+    margin-top: 1rem;
+    
+    
+    @include tablet-only{
+      margin-left: 8rem;
+    }
+    
+    @include desktop-only{
+      margin-left: 8rem;
+    }
   }
 }
 
@@ -385,7 +395,6 @@ main {
     flex:1;
     max-width: 1980px;
     margin: $center;
-    grid-area: 2 / 1 / 3 / 2;
     @include flexbox(space-evenly, center, 0, column);
   }
 }
@@ -756,19 +765,18 @@ main {
   background-color: $white;
   position: relative;
   z-index: 1;
-  border-top-right-radius: 2rem;
-  border-top-left-radius: 2rem;
+  border-top-right-radius: 2.5rem;
+  border-top-left-radius: 2.5rem;
+
+  @include widescreen-only{
+    width: 80%;
+    margin: $center;
+  }
 
   &__name {
-    padding: $padding + 1rem $padding $padding $padding;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    justify-items: center;
-    align-items: center;
-
+    padding: $padding + 1rem $padding + 2.5rem 0 $padding;
+    @include flexbox(space-between, center, 0);
+        
     &--title {
       grid-area: 1 / 1 / 2 / 3;
       & h1 {
@@ -778,11 +786,25 @@ main {
     }
 
     &--favorite {
-      grid-area: 1 / 3 / 2 / 4;
       @include heart;
       position: relative;
       top: -2.05rem;
       left: -3.05rem;
+    }
+
+    @include tablet-only{
+      width: 80%;
+      margin: $center;
+    }
+
+    @include desktop-only{
+      width: 80%;
+      margin: $center;
+    }
+
+    @include widescreen-only{
+      width: 80%;
+      margin: $center;
     }
   }
 
@@ -792,7 +814,7 @@ main {
     @include menu-title;
 
     &--container {
-      width: 50%;
+      width: 100%;
       animation: menu-move-up 400ms cubic-bezier(0.12, 0.74, 0.3, 1) both;
       transform: translateY(20px);
 
@@ -808,18 +830,32 @@ main {
       &:nth-child(4) {
         animation-delay: 220ms;
       }
-    }
 
+      @include tablet-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include desktop-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include widescreen-only{
+        width: 80%;
+        margin: $center;
+      }
+    }
+    
     &--content {
       background-color: white;
       padding: 1rem;
       display: flex;
       border-radius: 0.75rem;
-      margin: 1rem 0;
       box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);
       overflow: hidden;
       cursor: pointer;
-      width: 30%;
+      width: 100%;
 
       &:hover > .menu__entries--animation {
         margin-right: -1rem;
@@ -827,6 +863,21 @@ main {
 
       &:hover .menu__entries--icon {
         transform: rotate(360deg);
+      }
+
+      @include tablet-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include desktop-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include widescreen-only{
+        width: 80%;
+        margin: $center;
       }
     }
 
@@ -907,6 +958,11 @@ main {
         opacity: 1;
       }
     }
+
+    @include widescreen-only{
+      width: 80%;
+      margin: $center;
+    }
   }
 
   &__dishes {
@@ -915,7 +971,7 @@ main {
     @include menu-title;
 
     &--container {
-      width: 50%;
+      width: 100%;
       animation: menu-move-up 400ms cubic-bezier(0.12, 0.74, 0.3, 1) both;
       transform: translateY(20px);
 
@@ -931,6 +987,21 @@ main {
       &:nth-child(4) {
         animation-delay: 220ms;
       }
+
+      @include tablet-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include desktop-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include widescreen-only{
+        width: 80%;
+        margin: $center;
+      }
     }
 
     &--content {
@@ -938,11 +1009,10 @@ main {
       padding: 1rem;
       display: flex;
       border-radius: 0.75rem;
-      margin: 1rem 0;
       box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);
       overflow: hidden;
       cursor: pointer;
-      width: 30%;
+      width: 100%;
 
       &:hover > .menu__dishes--animation {
         margin-right: -1rem;
@@ -950,6 +1020,21 @@ main {
 
       &:hover .menu__dishes--icon {
         transform: rotate(360deg);
+      }
+
+      @include tablet-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include desktop-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include widescreen-only{
+        width: 80%;
+        margin: $center;
       }
     }
 
@@ -1030,6 +1115,11 @@ main {
         opacity: 1;
       }
     }
+
+    @include widescreen-only{
+      width: 80%;
+      margin: $center;
+    }
   }
 
   &__desserts {
@@ -1038,7 +1128,7 @@ main {
     @include menu-title;
 
     &--container {
-      width: 50%;
+      width: 100%;
       animation: menu-move-up 400ms cubic-bezier(0.12, 0.74, 0.3, 1) both;
       transform: translateY(20px);
 
@@ -1054,25 +1144,54 @@ main {
       &:nth-child(4) {
         animation-delay: 220ms;
       }
-    }
 
+      @include tablet-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include desktop-only{
+        width: 80%;
+        margin: $center;
+      }
+      
+      @include widescreen-only{
+        width: 80%;
+        margin: $center;
+      }
+    }
+    
     &--content {
       background-color: white;
       padding: 1rem;
       display: flex;
       border-radius: 0.75rem;
-      margin: 1rem 0;
       box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.1);
       overflow: hidden;
       cursor: pointer;
-      width: 30%;
-
+      width: 100%;
+      
       &:hover > .menu__desserts--animation {
         margin-right: -1rem;
       }
-
+      
       &:hover .menu__desserts--icon {
         transform: rotate(360deg);
+      }
+
+      @include tablet-only{
+        width: 80%;
+        margin: $center;
+      }
+
+      @include desktop-only{
+        width: 80%;
+        margin: $center;
+      }
+      
+      @include widescreen-only{
+        width: 80%;
+        margin: $center;
       }
     }
 
@@ -1151,6 +1270,11 @@ main {
         transform: translateY(0px);
         opacity: 1;
       }
+    }
+    
+    @include widescreen-only{
+      width: 80%;
+      margin: $center;
     }
   }
 
