@@ -1,0 +1,96 @@
+.header {
+    &__back {
+      & a {
+        grid-area: 1 / 1 / 2 / 2;
+        font-size: 2rem;
+        &::before {
+          display: inline-block;
+          vertical-align: middle;
+          position: relative;
+          right: 1.5rem;
+          @include icon("\f060");
+        }
+      }
+    }
+  
+    &__logo {
+      @include grid(repeat(3, 1fr), 1fr, 0, 0);
+  
+      justify-items: center;
+      align-items: center;
+      position: relative;
+      text-align: center;
+      padding: $padding + 0.4rem 0;
+      @include box-shadow(0 0.4rem 1rem 0.4rem rgba(0, 0, 0, 0.3));
+  
+      & img {
+        grid-area: 1 / 2 / 2 / 3;
+        width: 130%;
+  
+        @include tablet-only {
+          width: 80%;
+        }
+  
+        @include desktop-only {
+          width: 40%;
+        }
+  
+        @include widescreen-only {
+          width: 30%;
+        }
+      }
+  
+      @include widescreen-only {
+        grid-area: 1 / 1 / 2 / 2;
+      }
+    }
+  
+    &__restaurant-image {
+      height: 12rem;
+      max-width: 100%;
+      @include header-image;
+    }
+  }
+  
+  .places {
+    padding: $padding + 0.4rem 0;
+    background-color: $light-background-color;
+  
+    &__text {
+      @include flexbox(center, center, 1rem);
+  
+      & input {
+        border: none;
+        background: none;
+        width: 7rem;
+        font-size: 1rem;
+  
+        @include tablet-only {
+          width: 8rem;
+          font-size: 1.2rem;
+        }
+        @include desktop-only {
+          width: 9rem;
+          font-size: 1.3rem;
+        }
+        @include widescreen-only {
+          width: 10.6rem;
+          font-size: 1.5rem;
+        }
+      }
+  
+      &::before {
+        @include icon("\f3c5");
+  
+        @include tablet-only {
+          font-size: 1.2rem;
+        }
+        @include desktop-only {
+          font-size: 1.3rem;
+        }
+        @include widescreen-only {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }

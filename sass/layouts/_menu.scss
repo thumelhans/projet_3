@@ -1,0 +1,58 @@
+.menu {
+    background-color: $white;
+    position: relative;
+    z-index: 1;
+    border-top-right-radius: 2.5rem;
+    border-top-left-radius: 2.5rem;
+  
+    @include widescreen-only {
+      width: 80%;
+      margin: $center;
+    }
+  
+    &__name {
+      padding: $padding + 1rem $padding + 2.5rem 0 $padding;
+      @include flexbox(space-between, center, 0);
+  
+      &--title {
+        grid-area: 1 / 1 / 2 / 3;
+        & h1 {
+          font-family: $logo-font;
+          font-size: 1.5rem;
+        }
+      }
+  
+      &--favorite {
+        @include heart;
+        position: relative;
+        top: -2.05rem;
+        left: -3.05rem;
+      }
+  
+      @include tablet-only {
+        width: 80%;
+        margin: $center;
+      }
+  
+      @include desktop-only {
+        width: 80%;
+        margin: $center;
+      }
+  
+      @include widescreen-only {
+        width: 80%;
+        margin: $center;
+      }
+    }
+  
+    @include menu-class;
+  
+    &__order {
+      width: fit-content;
+      margin: $center;
+      margin-top: $margin + 2.4rem;
+      margin-bottom: $margin + 2.4rem;
+    }
+  
+    @include button;
+  }

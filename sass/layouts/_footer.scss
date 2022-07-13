@@ -1,0 +1,61 @@
+.footer {
+    background-color: $dark-background-color;
+    color: $white;
+    padding: $padding + 1.25rem $padding + 0.6rem;
+  
+    &__logo {
+      margin-bottom: $margin + 0.6rem;
+      & h2 {
+        font-family: $logo-font;
+      }
+    }
+  
+    &__link {
+      color: $white;
+      @include flexbox(flex-start, flex-start, 0.6rem, column wrap);
+  
+      &-1 {
+        @include flexbox(space-between, flex-start, 0.4rem);
+        &::before {
+          width: 1.5rem;
+          @include icon("\f2e7");
+        }
+      }
+  
+      &-2 {
+        @include flexbox(space-between, flex-start, 0.4rem);
+        &::before {
+          width: 1.5rem;
+          @include icon("\f4c4");
+        }
+      }
+  
+      & a {
+        color: $white;
+      }
+  
+      @include tablet-only() {
+        @include flexbox(space-between, flex-start, 0, row wrap);
+      }
+  
+      @include desktop-only {
+        @include flexbox(space-between, flex-start, 0, row wrap);
+      }
+  
+      @include widescreen-only {
+        @include flexbox(space-between, flex-start, 0, row wrap);
+      }
+    }
+  
+    &__container {
+      @include desktop-only {
+        max-width: 50%;
+        margin: $center;
+      }
+  
+      @include tablet-only {
+        max-width: 90%;
+        margin: $center;
+      }
+    }
+  }

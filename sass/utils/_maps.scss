@@ -1,0 +1,29 @@
+$breakpoints: (
+  "mobile": 768px,
+  "tablet": 992px,
+  "widescreen": 1981px,
+);
+
+$spinner-loader-class: (
+  "circle1": (
+    280px,
+    1300ms,
+    600ms,
+  ),
+  "circle2": (
+    210px,
+    1000ms,
+    550ms,
+  ),
+  "circle3": (
+    250px,
+    1150ms,
+    450ms,
+  ),
+);
+
+$explanation-class: (
+  "choose": "\f3cd",
+  "compose": "\f0ca",
+  "taste": "\f54e",
+);

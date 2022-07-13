@@ -1,0 +1,27 @@
+.explanation {
+    padding: $padding + 0.6rem;
+    max-width: 600px;
+    margin: $center;
+  
+    &__container {
+      margin: $margin + 0.6rem;
+    }
+  
+    @include explanation-set-class;
+  
+    @include tablet-only {
+      max-width: 60%;
+      margin: $center;
+    }
+  
+    @include desktop-only {
+      width: 40%;
+      margin: $center;
+    }
+  
+    @include widescreen-only {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+    }
+  }

@@ -1,0 +1,50 @@
+@import "../utils/variables";
+@import "../utils/mixins";
+@import "../utils/maps";
+
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Shrikhand&display=swap");
+
+* {
+  margin: $margin - 0.6rem;
+  padding: $padding - 0.6rem;
+  box-sizing: border-box;
+  font-family: $main-font;
+}
+
+ul,
+ol,
+a {
+  list-style-type: none;
+  text-decoration: none;
+  color: $font-color;
+}
+
+body {
+  @include widescreen-only {
+    min-height: 100vh;
+    display: flex;
+    flex-flow: column;
+  }
+}
+
+main {
+  @include desktop-only {
+    max-width: 1440px;
+    margin: $center;
+  }
+
+  @include widescreen-only {
+    flex: 1;
+    max-width: 1980px;
+    margin: $center;
+    @include flexbox(space-evenly, center, 0, column);
+  }
+}
+
+.widescreen {
+  &__flex {
+    @include widescreen-only {
+      @include flexbox(center, flex-start, 0, row wrap);
+    }
+  }
+}

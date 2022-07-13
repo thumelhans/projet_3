@@ -1,0 +1,10 @@
+.reservation {
+    padding: $padding + 1.25rem $padding + 0.6rem;
+    @include flexbox(space-between, center, 0.6rem, column wrap);
+    text-align: center;
+  
+    &__button {
+      margin-top: $margin + 1rem;
+    }
+    @include button;
+  }

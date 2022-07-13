@@ -1,0 +1,85 @@
+.restaurant {
+  padding: $padding + 0.6rem;
+
+  &__new {
+    position: relative;
+    top: 3rem;
+    left: 14rem;
+    padding: $padding - 0.3rem $padding;
+    width: fit-content;
+    background-color: $tertiary;
+
+    & p {
+      @include text-colour($tertiary);
+    }
+  }
+
+  &__title {
+    @include tablet-only {
+      max-width: 95%;
+      margin: $center;
+    }
+
+    @include desktop-only {
+      max-width: 900px;
+      margin: $center;
+    }
+
+    @include widescreen-only {
+      max-width: unset;
+      margin: 0;
+      padding-left: 4.5rem;
+    }
+  }
+
+  &__container {
+    margin: $margin + 0.6rem 0;
+    padding: $padding 0;
+    @include flexbox(center, center, 1.5rem, row wrap);
+  }
+
+  &__cards {
+    width: 100%;
+
+    @include grid(repeat(3, 33.33%), repeat(4, 1fr), 0, 0);
+
+    border-radius: 1.2rem;
+    @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3));
+
+    &--image {
+      grid-area: 1 / 1 / 4 / 4;
+      height: 12rem;
+      width: 100%;
+      @include index-image;
+    }
+
+    &--text {
+      padding: $padding - 0.2rem 0 $padding $padding + 0.6rem;
+      padding-bottom: $padding;
+      grid-area: 4 / 1 / 5 / 3;
+      @include flexbox(flex-start, flex-start, 0.6rem, column wrap);
+      border-bottom-left-radius: 1.2rem;
+    }
+
+    &--favorite {
+      grid-area: 4 / 3 / 5 / 4;
+      border-bottom-right-radius: 1.2rem;
+      @include heart;
+    }
+
+    &--heart {
+      width: 100%;
+    }
+  }
+
+  @include desktop-only {
+    width: 900px;
+    margin: $center;
+  }
+
+  @include widescreen-only {
+    width: 50%;
+    margin: 0;
+    @include flexbox(flex-start, flex-start, 0, column wrap);
+  }
+}

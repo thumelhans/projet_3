@@ -1,0 +1,46 @@
+@import "./mixins";
+
+%typography {
+  letter-spacing: 0.1rem;
+}
+
+%button {
+  padding: $padding + 0.6rem $padding + 1.8rem;
+  border: none;
+  border-radius: 2.5rem;
+  background: $button-background-color;
+  @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.3));
+
+  & p {
+    color: $white;
+    font-size: 1.2rem;
+  }
+
+  &:hover {
+    @include linear-lighten(
+      170deg,
+      rgba(255, 121, 218, 1),
+      rgba(198, 86, 208, 1),
+      rgba(147, 86, 220, 1),
+      5%,
+      0%,
+      60%,
+      100%
+    );
+    @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.5));
+  }
+}
+
+%cover-fit {
+  object-fit: cover;
+}
+
+%bottom-border {
+  &::after {
+    content: "";
+    display: block;
+    padding-top: $padding;
+    width: 60%;
+    border-bottom: 3px solid $tertiary;
+  }
+}

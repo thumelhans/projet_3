@@ -1,0 +1,32 @@
+//Colors
+$primary: #9356dc;
+$secondary: #ff79da;
+$tertiary: #99e2d0;
+$white: white;
+$black: black;
+$danger: darkred;
+$validation: green;
+
+//Background
+$light-background-color: #f6f6f6;
+$dark-background-color: #353535;
+$button-background-color: linear-gradient(
+  170deg,
+  rgba(255, 121, 218, 1) 0%,
+  rgba(198, 86, 208, 1) 60%,
+  rgba(147, 86, 220, 1) 100%
+);
+
+//Font
+$main-font: "Roboto", sans-serif;
+$logo-font: "Shrikhand", sans-serif;
+$font-color: $black !default;
+
+//Padding & Margin
+$padding: 0.6rem !default;
+$margin: 0.6rem !default;
+$center: 0 auto;
+
+//Height & Width
+$height: 100vh;
+$width: 100%;
