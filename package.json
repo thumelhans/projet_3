@@ -4,7 +4,7 @@
   "description": "Ohmyfood. Site de commande de repas gastronomique en ligne. Mise en place d'une première version du site avec des animations CSS.",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/style.scss:./css/style.css",
+    "sass": "sass --watch ./sass/style.scss:./css/style.css --style compressed",
     "prefix": "postcss ./css/style.css --use autoprefixer -d ./css/"
   },
   "repository": {
