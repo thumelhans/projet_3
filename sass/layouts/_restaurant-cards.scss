@@ -1,5 +1,6 @@
 .restaurant {
   padding: $padding + 0.6rem;
+  background-color: $light-background-color;
 
   &__new {
     position: relative;
@@ -64,17 +65,15 @@
     &--favorite {
       grid-area: 4 / 3 / 5 / 4;
       border-bottom-right-radius: 1.2rem;
+      @include flexbox(flex-end,center);
       @include heart;
-    }
-
-    &--heart {
-      width: 100%;
     }
   }
 
   @include desktop-only {
     width: 900px;
     margin: $center;
+    background-color: unset;
   }
 
   @include widescreen-only {

@@ -17,18 +17,6 @@
     @include spinner-circle-class;
   
     @include animation-border-loader;
-  
-    & h3 {
-      font-size: 2rem;
-      opacity: 0;
-      animation: disapear 1150ms ease-in-out 150ms 3 both;
-    }
-  
-    &__point {
-      font-size: 2rem;
-      padding: 3px;
-      animation: disapear 1150ms ease-in-out 150ms 3 both;
-    }
-  
+    
     @include animation-disapear;
   }

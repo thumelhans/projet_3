@@ -24,9 +24,6 @@
   
       &--favorite {
         @include heart;
-        position: relative;
-        top: -2.05rem;
-        left: -3.05rem;
       }
   
       @include tablet-only {

@@ -54,7 +54,7 @@
   
   .places {
     padding: $padding + 0.4rem 0;
-    background-color: $light-background-color;
+    background-color: darken($light-background-color, 5%);
   
     &__text {
       @include flexbox(center, center, 1rem);

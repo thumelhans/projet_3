@@ -28,9 +28,10 @@
 
 @mixin explanation-content($content) {
   @include flexbox(flex-start, center, 0, row wrap);
-
+  
   &:hover &--text {
     @include background-colour($secondary);
+    @include box-shadow(0 0.4rem 1rem 0.2rem rgba(0, 0, 0, 0.5));
     cursor: pointer;
   }
 
@@ -49,13 +50,13 @@
     height: 1.8rem;
     text-align: center;
     display: table;
-
+    
     & p {
       display: table-cell;
       vertical-align: middle;
     }
   }
-
+  
   &--text {
     @include flexbox(flex-start, center, 1.5rem);
     width: 100%;
@@ -69,6 +70,10 @@
       text-align: center;
       width: 1.5rem;
       @include icon($content);
+    }
+
+    @include desktop-only {
+      background-color: $white;
     }
   }
 }
@@ -123,35 +128,32 @@
 }
 
 @mixin heart {
+  .fa-stack {
+    margin-right: 1rem;
+  }
+
   .fa-regular {
     font-size: 2rem;
-    position: absolute;
-    transform: translate(3.15rem, 1.05rem);
   }
 
   .fa-solid {
     font-size: 2rem;
-    position: absolute;
     opacity: 0;
-    transform: translate(3.15rem, 1.05rem);
-    background: linear-gradient(
+    color: transparent;
+    background-clip: text;
+    background-image: linear-gradient(
       41deg,
       rgba(217, 107, 198, 1) 0%,
       rgba(198, 86, 208, 1) 37%,
       rgba(147, 86, 208, 1) 100%
     );
     -webkit-background-clip: text;
-    -moz-background-clip: text;
     -webkit-text-fill-color: transparent;
-    -moz-text-fill-color: transparent;
   }
 
-  .fa-solid:hover {
+  .fa-stack:hover > .fa-solid {
     animation: full-heart 300ms ease-in-out both;
-  }
-
-  .fa-solid:active {
-    animation: full-heart 300ms ease-in-out both;
+    cursor: pointer;
   }
 
   @include animation-full-heart;
@@ -161,27 +163,27 @@
   @keyframes full-heart {
     0% {
       opacity: 0;
-      transform: translate(3.15rem, 1.05rem) scale(0.2);
+      transform: scale(0.2);
     }
 
     25% {
-      transform: translate(3.15rem, 1.05rem) scaleX(1.3) scaleY(1.1);
+      transform: scaleX(1.3) scaleY(1.1);
       opacity: 0.18;
     }
 
     50% {
-      transform: translate(3.15rem, 1.05rem) scaleX(1.2) scaleY(1.4);
+      transform: scaleX(1.2) scaleY(1.4);
       opacity: 0.55;
     }
 
     75% {
-      transform: translate(3.15rem, 1.05rem) scaleX(1.3) scaleY(1.1);
+      transform: scaleX(1.3) scaleY(1.1);
       opacity: 0.65;
     }
 
     100% {
       opacity: 1;
-      transform: translate(3.15rem, 1.05rem) scale(1);
+      transform: scale(1);
     }
   }
 }
@@ -218,11 +220,11 @@
       opacity: 0.8;
       visibility: visible;
     }
-
+    
     50% {
       opacity: 1;
     }
-
+    
     100% {
       opacity: 0;
       z-index: 0;
